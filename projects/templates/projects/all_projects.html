@@ -15,30 +15,30 @@
       <h1>Projects</h1>
         <hr class="my-5">
         <div class="row" data-masonry='{"percentPosition": true }'>
-            {% for project in projects %}
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="card shadow-sm">
-                <img src="{% static project.image %}" class="card-img-top" alt="{{ project.title }}">
-                <div class="card-body">
-                  <h5 class="card-title">{{project.title}}</h5>
-                  <p class="card-text">{{project.description}}</p>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-
             <div class="col-sm-6 col-lg-4 mb-4">
               <div class="card bg-primary bg-gradient p-3 shadow-sm">
                 <figure class="p-3 mb-0">
                   <blockquote class="blockquote">
                     <p class="fw-bolder">Whatever it takes.</p>
                   </blockquote>
-                  <figcaption class="blockquote-footer mb-0 text-light">
+                  <figcaption class="blockquote-footer mb-0 mt-1 text-light">
                     Steve Rogers in <cite title="Source Title">Infinity Saga</cite>
                   </figcaption>
                 </figure>
               </div>
             </div>
+                {% for project in projects %}
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                      <div class="card shadow-sm">
+                        <img src="{% static project.image %}" class="card-img-top" alt="{{ project.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{project.title}}</h5>
+                            <p class="card-text">{{project.description}}</p>
+                            <a href="{% url 'projects:project_detail' project.pk %}" class="btn btn-primary">Read More</a>
+                        </div>
+                      </div>
+                    </div>
+                {% endfor %}
         </div>
     </main>
 
