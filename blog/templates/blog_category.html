@@ -1,0 +1,29 @@
+{% extends "projects/base.html" %}
+
+{% block content %}
+
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          <h1 class="py-5">{{ category | title }}</h1>
+        {% for post in posts %}
+        <div class="post-preview">
+          <a class="text-decoration-none" href="{% url 'blog_detail' post.pk %}">
+            <h2 class="post-title text-success">
+                {{ post.title }}
+            </h2>
+          </a>
+          <p class="post-meta">Posted on
+            {{ post.created_on.date }} under
+                {% for category in post.categories.all %}
+                <a class="text-decoration-none" href="{% url 'blog_category' category.name %}">
+                    {{ category.name }}
+                </a>&nbsp;
+                {% endfor %}
+          </p>
+
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+{% endblock content %}
