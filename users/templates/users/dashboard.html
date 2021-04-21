@@ -1,0 +1,5 @@
+{% extends 'projects/base.html' %}
+
+{% block content %}
+Hello, {{ user.username|default:'Guest' }}!
+{% endblock content  %}
