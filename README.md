@@ -22,3 +22,4 @@ _('.' at the end puts folder directly in main directory, avoiding further nestin
 `python manage.py startapp <appname>`
 
 ##### Open in your fav IDE (VSCode or PyCharm)
+
